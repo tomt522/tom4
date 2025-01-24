@@ -33,7 +33,7 @@ module.exports = {
   },
 
   sendInfo: async function (message) {
-    const botName = "[config.nicknamebot}";
+    const botName = "𝐄𝐒𝐇𝐀💋";
     const botPrefix = ".";
     const authorName = "Ă̈Y̆̈Ă̈N̆̈";
     const authorFB = "Ami Facebook Chalai na🫠";
@@ -59,7 +59,7 @@ module.exports = {
 ≡≡║Bot & Owner Info║≡≡
 ﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
 
-♕︎ Bot Name↠ ${botName}
+♕︎ Bot Name↠ ${config.nicknamebot}
 
 ♕︎ Bot Prefix↠ ${botPrefix}
 
