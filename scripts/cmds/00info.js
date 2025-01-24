@@ -3,7 +3,7 @@ module.exports = {
   config: {
     name: "info",
     aliases: ["inf", "in4"],
-    version: "2.0",
+    version: "1.0",
     author: "VEX_ADNAN",
     countDown: 5,
     role: 0,
