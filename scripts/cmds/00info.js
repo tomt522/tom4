@@ -59,7 +59,7 @@ module.exports = {
 ≡≡║Bot & Owner Info║≡≡
 ﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
 
-♕︎ Bot Name↠ ${config.nicknamebot}
+♕︎ Bot Name↠ ${botname}
 
 ♕︎ Bot Prefix↠ ${botPrefix}
 
