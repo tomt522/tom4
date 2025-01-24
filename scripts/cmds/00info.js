@@ -3,8 +3,8 @@ module.exports = {
   config: {
     name: "info",
     aliases: ["inf", "in4"],
-    version: "1.0",
-    author: "arYan",
+    version: "2.0",
+    author: "VEX_ADNAN",
     countDown: 5,
     role: 0,
     shortDescription: {
@@ -35,9 +35,9 @@ module.exports = {
   sendInfo: async function (message) {
     const botName = "𝐄𝐒𝐇𝐀💋";
     const botPrefix = ".";
-    const authorName = "Ă̈Y̆̈Ă̈N̆̈";
-    const authorFB = "Ami Facebook Chalai na🫠";
-    const authorInsta = "No";
+    const authorName = "𝗔𝗬𝗔𝗡";
+    const authorFB = "SorrY Vhai Ami Eisob Chalai না 🙂🙏";
+    const authorInsta = "Shor Mgii 😒";
     const status = "𝗣𝘂𝗿𝗲 𝗦𝗶𝗻𝗴𝗹𝗲";
 
     const urls = JSON.parse(fs.readFileSync('scripts/cmds/assets/Adnan.json'));
@@ -59,7 +59,7 @@ module.exports = {
 ≡≡║Bot & Owner Info║≡≡
 ﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏﹏
 
-♕︎ Bot Name↠ ${botname}
+♕︎ Bot Name↠ ${botName}
 
 ♕︎ Bot Prefix↠ ${botPrefix}
 
