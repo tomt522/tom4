@@ -24,7 +24,7 @@ body: `
 ╭‣ 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 ⓕ
 ╰‣アヤン
 \n\n\n  `,
-attachment: await global.utils.getStreamFromURL("https://i.imgur.com/FdrIWdY.mp4")
+attachment: await global.utils.getStreamFromURL("https://i.imgur.com/fLVAvqL.jpeg")
 });
 }
 }
