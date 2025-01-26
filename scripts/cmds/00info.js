@@ -33,7 +33,7 @@ module.exports = {
   },
 
   sendInfo: async function (message) {
-    const botName = ${config.nicknamebot};
+    const botName = " 🕸️ SpideY 🕷️ ";
     const botPrefix = ".";
     const authorName = "𝗔𝗬𝗔𝗡";
     const authorFB = "NOPE 🐸";
