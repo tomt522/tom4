@@ -1,55 +1,84 @@
 const axios = require("axios");
-const fs = require("fs-extra");
-const request = require("request");
 const path = require("path");
+const fs = require("fs");
 
 module.exports = {
-  config: {
-    name: "pin", 
-    aliases: ["pinterest"], 
-    version: "1.0.2", 
-    author: "KSHITIZ", 
-    role: 0,
-    countDown: 5,
-    shortDescription:{
-      en: "Search for images on Pinterest"}, 
-    longDescription:{
-      en:""}, 
-    category: "Search", 
-    guide: {
-      en: "{prefix}pinterest <search query> -<number of images>"
-    }
-  }, 
+ config: {
+ name: "pinterest",
+ aliases: ["pin"],
+ version: "0.0.1",
+ author: "ArYAN",
+ role: 0,
+ countDown: 20,
+ longDescription: {
+ en: "This command allows you to search for images on Pinterest based on a given query and fetch a specified number of images (1-100)."
+ },
+ category: "media",
+ guide: {
+ en: "{pn} <search query> <number of images>\nExample: {pn} cat - 10"
+ }
+ },
 
-  onStart: async function({ api, event, args }) {
-    try {
-      const keySearch = args.join(" ");
-      if (!keySearch.includes("-")) {
-        return api.sendMessage(`Please enter the search query and number of images to return in the format: ${config.guide.en}`, event.threadID, event.messageID);
-      }
-      const keySearchs = keySearch.substr(0, keySearch.indexOf('-')).trim();
-      const numberSearch = parseInt(keySearch.split("-").pop().trim()) || 6;
+ onStart: async function ({ api, event, args }) {
+ try {
+ const keySearch = args.join(" ");
+ if (!keySearch.includes("-")) {
+ return api.sendMessage(
+ `Please enter the search query and number of images\n\nExample:\n{p}pin cat - 10.`,
+ event.threadID,
+ event.messageID
+ );
+ }
 
-      const res = await axios.get(`https://api-dien.kira1011.repl.co/pinterest?search=${encodeURIComponent(keySearchs)}`);
-      const data = res.data.data;
-      const imgData = [];
+ const keySearchs = keySearch.substr(0, keySearch.indexOf('-')).trim();
+ let numberSearch = parseInt(keySearch.split("-").pop()) || 6;
+ if (numberSearch > 20) {
+ numberSearch = 20;
+ }
 
-      for (let i = 0; i < Math.min(numberSearch, data.length); i++) {
-        const imgResponse = await axios.get(data[i], { responseType: 'arraybuffer' });
-        const imgPath = path.join(__dirname, 'cache', `${i + 1}.jpg`);
-        await fs.outputFile(imgPath, imgResponse.data);
-        imgData.push(fs.createReadStream(imgPath));
-      }
+ const apiUrl = `https://aryan-noobs-apis.onrender.com/pinterest?search=${encodeURIComponent(keySearchs)}&count=${numberSearch}`;
 
-      await api.sendMessage({
-        attachment: imgData,
-        body: `Here are the top ${imgData.length} image results for "${keySearchs}":`
-      }, event.threadID, event.messageID);
+ const res = await axios.get(apiUrl);
+ const data = res.data.data;
+ const imgData = [];
 
-      await fs.remove(path.join(__dirname, 'cache'));
-    } catch (error) {
-      console.error(error);
-      return api.sendMessage(`please add to your keysearch -10 \ ex: pin -cat -10`, event.threadID, event.messageID);
-    }
-  }
+ const cacheDir = path.join(__dirname, "cache");
+ if (!fs.existsSync(cacheDir)) {
+ fs.mkdirSync(cacheDir);
+ }
+
+ for (let i = 0; i < Math.min(numberSearch, data.length); i++) {
+ try {
+ const imgResponse = await axios.get(data[i], {
+ responseType: "arraybuffer",
+ headers: {
+ 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+ }
+ });
+ const imgPath = path.join(cacheDir, `${i + 1}.jpg`);
+ await fs.promises.writeFile(imgPath, imgResponse.data, 'binary');
+ imgData.push(fs.createReadStream(imgPath));
+ } catch (error) {
+ console.error(`Error downloading image ${data[i]}:`, error.message);
+ }
+ }
+
+ await api.sendMessage({
+ body: ``,
+ attachment: imgData,
+ }, event.threadID, event.messageID);
+
+ if (fs.existsSync(cacheDir)) {
+ await fs.promises.rm(cacheDir, { recursive: true });
+ }
+
+ } catch (error) {
+ console.error(error);
+ return api.sendMessage(
+ `An error occurred: ${error.message}`,
+ event.threadID,
+ event.messageID
+ );
+ }
+ }
 };
