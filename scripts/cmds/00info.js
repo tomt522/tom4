@@ -60,7 +60,7 @@ module.exports = {
 ├‣ 𝐍𝐚𝐦𝐞: ${authorName}
 ├‣ 𝐁𝐨𝐭 𝐍𝐚𝐦𝐞:  ${botName}
 ├‣ 𝐏𝐫𝐞𝐟𝐢𝐱:  ${botPrefix}
-├‣ 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤: ${authorFB}
+├‣ 𝐅𝐛: ${authorFB}
 ├‣ 𝐈𝐧𝐬𝐭𝐚𝐠𝐫𝐚𝐦:  ${authorInsta}
 ├‣ 𝐑𝐞𝐥𝐚𝐭𝐢𝐨𝐧𝐬𝐡𝐢𝐩: ${status}   
 ├‣ 𝐓𝐢𝐦𝐞:  ${time}
