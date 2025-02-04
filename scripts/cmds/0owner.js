@@ -19,7 +19,7 @@ config: {
       name: '【𝗔𝗬𝗔𝗡】',
       gender: '【MaLe】',
       age: '【1+】',
-      height: '【5.9】',
+      height: '【5.11】',
       choise: '【Russian 😞】',
       nick: '【Jamai Dak mgi 】'
     };
@@ -39,16 +39,16 @@ config: {
 
     const response = ` 
 ╭[.  ]•〆 ᴀʏᴀɴ 〆 ]  ─⦿
-├───【 OWNER】─────   ─⦿  
-├───【𝙷𝙴𝙻𝙻𝙾 𝙴𝚅𝙴𝚁𝚈𝙾𝙽𝙴】─⦿
-├────────────────  ─⦿
-├───────────────   ─⦿
+├───【 OWNER】────   ─⦿  
+ 【𝙷𝙴𝙻𝙻𝙾 𝙴𝚅𝙴𝚁𝚈𝙾𝙽𝙴】─⦿
+├─────────⦿
+├───────⦿
 ├─Name: ${ownerInfo.name}
 ├─Choise: ${ownerInfo.choise}
 ├─Gender:${ownerInfo.gender}
 ├─Nick: ${ownerInfo.nick}
 ├─Height: ${ownerInfo.height}
-╰───────────────────❏
+╰────────────❏
 `;
 
 
