@@ -12,10 +12,10 @@ category: "no prefix",
 
 onStart: async function(){}, 
 onChat: async function({ event, message, getLang }) {
-if (event.body && event.body.toLowerCase() === "ayan") {
+if (event.body && event.body.toLowerCase() === "mahid") {
 return message.reply({
-body: " ──────────◊\n‣ 𝐁𝐨𝐭 & 𝐎𝐰𝐧𝐞𝐫 𝐈𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧  \n\n‣ 𝐍𝐚𝐦𝐞: 𝗔𝗬𝗔𝗡                         ‣ 𝐁𝐨𝐭 𝐍𝐚𝐦𝐞:🕸️ SpideY 🕷️ 」",
-attachment: await global.utils.getStreamFromURL("https://i.imgur.com/8YTvM5Y.mp4")
+body: " ──────────◊\n‣ 𝐁𝐨𝐭 & 𝐎𝐰𝐧𝐞𝐫 𝐈𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧  \n\n‣ 𝐍𝐚𝐦𝐞: AYaN                        ‣ 𝐁𝐨𝐭 𝐍𝐚𝐦𝐞:🕸️ SpideY 🕷️ 」",
+attachment: await global.utils.getStreamFromURL("https://i.imgur.com/KV1u6yV.mp4")
 });
 }
 }
