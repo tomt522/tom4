@@ -40,7 +40,7 @@ module.exports = {
     const authorInsta = "Shor Mgii 😒";
     const status = "𝗣𝘂𝗿𝗲 𝗦𝗶𝗻𝗴𝗹𝗲";
 
-    const urls = JSON.parse(fs.readFileSync('scripts/cmds/assets/Adnan.json'));
+    const urls = JSON.parse(fs.readFileSync('scripts/cmds/assets/Ayan.json'));
     const link = urls[Math.floor(Math.random() * urls.length)];
 
     const now = moment().tz('Asia/Dhaka');
