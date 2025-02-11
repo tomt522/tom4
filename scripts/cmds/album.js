@@ -124,11 +124,11 @@ module.exports = {
       let query = categories[reply - 1];
       let cp = captions[reply - 1];
 
-      if (query === "18+" && event.senderID !== "61572491867501") {
+      if (query === "18+" && event.senderID !== "61572491867501) {
         return api.sendMessage("❌ You don't have permission to access this category.", event.threadID);
       }
 
-      const albumData = JSON.parse(fs.readFileSync("ayan.json", "utf-8"));
+      const albumData = JSON.parse(fs.readFileSync("scripts/cmds/ayan.json", "utf-8"));
       const videoUrls = albumData[query];
 
       if (!videoUrls || videoUrls.length === 0) {
@@ -146,3 +146,29 @@ module.exports = {
         });
 
         return new Promise((resolve, reject) => {
+          const writer = fs.createWriteStream(filePath);
+          response.data.pipe(writer);
+          writer.on("finish", resolve);
+          writer.on("error", reject);
+        });
+      }
+
+      try {
+        await downloadFile(randomVideoUrl, filePath);
+
+        api.sendMessage(
+          {
+            body: cp,
+            attachment: fs.createReadStream(filePath),
+          },
+          event.threadID,
+          () => {
+            fs.unlinkSync(filePath); // Delete the file after sending
+          }
+        );
+      } catch (error) {
+        api.sendMessage("❌ Failed to download the video.", event.threadID);
+      }
+    }
+  },
+};
