@@ -128,7 +128,7 @@ module.exports = {
         return api.sendMessage("❌ You don't have permission to access this category.", event.threadID);
       }
 
-      const albumData = JSON.parse(fs.readFileSync("idoll.json", "utf-8"));
+      const albumData = JSON.parse(fs.readFileSync("ayan.json", "utf-8"));
       const videoUrls = albumData[query];
 
       if (!videoUrls || videoUrls.length === 0) {
