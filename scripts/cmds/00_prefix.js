@@ -22,8 +22,8 @@ body: `
 ‣ 𝐑𝐢𝐟𝐚𝐭 𝐉𝐚𝐦𝐢𝐥
 
 ‣ 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 ⓕ
-‣ Rifat Jamil
-\n\n\n  `,
+‣ https://www.facebook.com/rifat5xr
+\n\n\n https://i.imgur.com/ZMDuL0r.mp4`,
 });
 }
 }
