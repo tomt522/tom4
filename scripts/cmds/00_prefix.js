@@ -23,7 +23,7 @@ body: `
 
 ‣ 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 ⓕ
 ‣ https://www.facebook.com/rifat5xr
-\n\n\n https://i.imgur.com/ZMDuL0r.mp4`,
+\n\n\n `,
 });
 }
 }
